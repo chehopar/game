@@ -1,13 +1,13 @@
 // require modules
-
 var express = require('express');
 
 // template engine
-
 var hbs = require('hbs');
 
-// instantiate app
+// middleware
+var morgan = require('morgan');
 
+// instantiate app
 var app = express();
 
 // define template engine
@@ -15,6 +15,9 @@ app.engine('html', hbs.__express);
 
 app.set('views', __dirname + '/views');
 app.set('view engine', 'html');
+
+// logger
+app.use(morgan('dev'));
 
 // static middleware
 app.use(express.static('public'));
