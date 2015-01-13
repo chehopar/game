@@ -2,12 +2,22 @@
 
 var express = require('express');
 
+// template engine
+
+var hbs = require('hbs');
+
 // instantiate app
 
 var app = express();
 
+// define template engine
+app.engine('html', hbs.__express);
+
+app.set('views', __dirname + '/views');
+app.set('view engine', 'html');
+
 app.get('/', function (req, res) {
-    res.send('Hello World!');
+    res.render('index.html', { title: 'It' });
 });
 
 var port = 4040;

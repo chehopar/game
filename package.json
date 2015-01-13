@@ -19,7 +19,8 @@
   },
   "homepage": "https://github.com/chehopar/game",
   "dependencies": {
-    "express": "^4.10.7"
+    "express": "^4.10.7",
+    "hbs": "^2.8.0"
   },
   "devDependencies": {
     "jshint-stylish": "^1.0.0",
