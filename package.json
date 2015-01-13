@@ -1,0 +1,24 @@
+{
+  "name": "chehopar-game",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Board game selector app",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/chehopar/game.git"
+  },
+  "author": "Mushex Antaranian",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/chehopar/game/issues"
+  },
+  "homepage": "https://github.com/chehopar/game",
+  "dependencies": {
+    "express": "^4.10.7"
+  }
+}
