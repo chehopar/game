@@ -16,6 +16,9 @@ app.engine('html', hbs.__express);
 app.set('views', __dirname + '/views');
 app.set('view engine', 'html');
 
+// static middleware
+app.use(express.static('public'));
+
 app.get('/', function (req, res) {
     res.render('index.html', { title: 'It' });
 });
