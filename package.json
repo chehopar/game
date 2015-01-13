@@ -23,6 +23,7 @@
   },
   "devDependencies": {
     "jshint-stylish": "^1.0.0",
-    "jshint": "^2.5.11"
+    "jshint": "^2.5.11",
+    "nodemon": "^1.2.1"
   }
 }

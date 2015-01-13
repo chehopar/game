@@ -7,11 +7,11 @@ Board game selector app.
 ```
 git clone https://github.com/chehopar/game.git
 cd game
-npm install
+make node_modules
 ```
 
 # Run
 
 ```
-npm start
+make
 ```
