@@ -2,13 +2,20 @@
 var express = require('express');
 
 // middleware
-var morgan = require('morgan');
+var morgan = require('morgan'),
+    bodyParser = require('body-parser');
 
 // instantiate app
 var app = express();
 
 // logger
 app.use(morgan('dev'));
+
+// parse application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: false }));
+
+// parse application/json
+app.use(bodyParser.json());
 
 // static middleware
 app.use(express.static('public'));
