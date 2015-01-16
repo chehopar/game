@@ -4,7 +4,8 @@ var express = require('express');
 // middleware
 var morgan = require('morgan'),
     bodyParser = require('body-parser'),
-    methodOverride = require('method-override');
+    methodOverride = require('method-override'),
+    cookieParser = require('cookie-parser');
 
 // instantiate app
 var app = express();
@@ -20,6 +21,8 @@ app.use(bodyParser.json());
 
 // use HTTP verbs with fallback on "X-HTTP-Method-Override" header
 app.use(methodOverride());
+
+app.use(cookieParser());
 
 // static middleware
 app.use(express.static('public'));
