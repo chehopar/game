@@ -5,7 +5,8 @@ var express = require('express');
 var morgan = require('morgan'),
     bodyParser = require('body-parser'),
     methodOverride = require('method-override'),
-    cookieParser = require('cookie-parser');
+    cookieParser = require('cookie-parser'),
+    session = require('express-session');
 
 // instantiate app
 var app = express();
@@ -23,6 +24,12 @@ app.use(bodyParser.json());
 app.use(methodOverride());
 
 app.use(cookieParser());
+
+app.use(session({
+  secret: 'keyboard cat',
+  resave: false,
+  saveUninitialized: true
+}));
 
 // static middleware
 app.use(express.static('public'));
