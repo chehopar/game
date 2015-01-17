@@ -14,20 +14,16 @@ var user = {
         name: 'Anna Sedokova'
     };
 
-var users = { 1: user };
-
 passport.serializeUser(function(user, done) {
-    done(null, user.id);
+    done(null, '1');
 });
 
 // used to deserialize the user
 passport.deserializeUser(function(id, done) {
-    var u = users[id];
-
-    if (!u)
+    if (!id)
         return done(Error('no user'));
 
-    return done(null, u);
+    return done(null, user);
 });
 
 passport.use('local-login', new LocalStrategy({
@@ -35,12 +31,19 @@ passport.use('local-login', new LocalStrategy({
     passwordField : 'password',
     passReqToCallback : true
 }, function (req, email, password, done){
+    console.log(email, password);
     if (user.email == email && user.password == password)
         return done(null, user);
 
     return done(null, false);
 }));
 
+
 app.use(passport.initialize());
 app.use(passport.session());
 
+// make user info always accessable in templates
+app.use(function(req, res, next){
+    res.locals.user = req.user;
+    next();
+});
