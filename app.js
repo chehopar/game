@@ -11,6 +11,8 @@ var morgan = require('morgan'),
 // instantiate app
 var app = module.exports = express();
 
+var router = require('./routes');
+
 // logger
 app.use(morgan('dev'));
 
@@ -34,14 +36,12 @@ app.use(session({
 // static middleware
 app.use(express.static('public'));
 
+// plug router
+app.use(router);
+
 // setup view rendering
 require('./core/engine.js');
 require('./core/authentication.js');
-
-
-app.get('/', function (req, res) {
-    res.render('index.html', { title: 'It' });
-});
 
 var port = 4040;
 
