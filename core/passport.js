@@ -1,7 +1,10 @@
 // load `passport` and expose
 var passport = module.exports = require('passport');
 
+var Miscue = require('decanat-miscue');
+
 var LocalStrategy   = require('passport-local').Strategy;
+
 
 var app = require('../app.js');
 // Passport integration
@@ -31,7 +34,6 @@ passport.use('local-login', new LocalStrategy({
     passwordField : 'password',
     passReqToCallback : true
 }, function (req, email, password, done){
-    console.log(email, password);
     if (user.email == email && user.password == password)
         return done(null, user);
 
@@ -47,3 +49,12 @@ app.use(function(req, res, next){
     res.locals.user = req.user;
     next();
 });
+
+
+module.exports.isAuthenticated = function (req, res, next) {
+    var err = req.isAuthenticated()
+            ? void 0
+            : Miscue(401, req.url);
+
+    return next(err);
+};
