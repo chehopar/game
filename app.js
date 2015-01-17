@@ -9,7 +9,7 @@ var morgan = require('morgan'),
     session = require('express-session');
 
 // instantiate app
-var app = express();
+var app = module.exports = express();
 
 // logger
 app.use(morgan('dev'));
@@ -35,9 +35,8 @@ app.use(session({
 app.use(express.static('public'));
 
 // setup view rendering
-require('./core/engine.js')(app);
-
-require('./core/authentication.js')(app);
+require('./core/engine.js');
+require('./core/authentication.js');
 
 
 app.get('/', function (req, res) {

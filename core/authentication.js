@@ -2,6 +2,7 @@ var passport = require('passport');
 
 var LocalStrategy   = require('passport-local').Strategy;
 
+var app = require('../app.js');
 // Passport integration
 
 // dummy user
@@ -39,17 +40,14 @@ passport.use('local-login', new LocalStrategy({
     return done(null, false);
 }));
 
-module.exports = function (app) {
-    app.use(passport.initialize());
-    app.use(passport.session());
+app.use(passport.initialize());
+app.use(passport.session());
 
-    app.get('/login', function (req, res) {
-        res.render('login.html');
-    });
+app.get('/login', function (req, res) {
+    res.render('login.html');
+});
 
-    app.post('/login', passport.authenticate('local-login', {
-        successRedirect : '/profile', // redirect to the secure profile section
-        failureRedirect : '/login' // redirect back to the signup page if there is an error
-    }));
-};
-
+app.post('/login', passport.authenticate('local-login', {
+    successRedirect : '/profile', // redirect to the secure profile section
+    failureRedirect : '/login' // redirect back to the signup page if there is an error
+}));
