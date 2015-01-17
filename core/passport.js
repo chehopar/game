@@ -44,11 +44,3 @@ passport.use('local-login', new LocalStrategy({
 app.use(passport.initialize());
 app.use(passport.session());
 
-app.get('/login', function (req, res) {
-    res.render('login.html');
-});
-
-app.post('/login', passport.authenticate('local-login', {
-    successRedirect : '/profile', // redirect to the secure profile section
-    failureRedirect : '/login' // redirect back to the signup page if there is an error
-}));

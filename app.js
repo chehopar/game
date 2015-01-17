@@ -41,7 +41,7 @@ app.use(router);
 
 // setup view rendering
 require('./core/engine.js');
-require('./core/authentication.js');
+require('./core/passport.js');
 
 var port = 4040;
 
