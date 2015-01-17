@@ -17,9 +17,12 @@
         <h1 class="title"> {{title}} </h1>
         <nav>
             <ul>
-                <li><a href="#">nav ul li a</a></li>
-                <li><a href="#">nav ul li a</a></li>
-                <li><a href="#">nav ul li a</a></li>
+                {{#if user}}
+                <li><a href="/profile"> {{ user.name }} </a></li>
+                <li><a href="/logout"> Logout </a></li>
+                {{else}}
+                <li><a href="/login"> Login </a></li>
+                {{/if}}
             </ul>
         </nav>
     </header>
