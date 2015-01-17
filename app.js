@@ -11,8 +11,6 @@ var morgan = require('morgan'),
 // instantiate app
 var app = module.exports = express();
 
-var router = require('./routes');
-
 // logger
 app.use(morgan('dev'));
 
@@ -36,12 +34,11 @@ app.use(session({
 // static middleware
 app.use(express.static('public'));
 
-// plug router
-app.use(router);
-
 // setup view rendering
 require('./core/engine.js');
 require('./core/passport.js');
+
+require('./routes');
 
 var port = 4040;
 

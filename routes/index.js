@@ -1,8 +1,7 @@
-var express = require('express');
+var app = require('../app.js');
 
-var router = module.exports = express.Router();
-
-router.get('/', function (req, res) {
+app.get('/', function (req, res) {
+    console.log(req.user);
     res.render('index.html', { title: 'It' });
 });
 
