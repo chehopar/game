@@ -40,6 +40,8 @@ require('./core/passport.js');
 
 require('./routes');
 
+require('./core/errors.js');
+
 var port = 4040;
 
 // bind network on given port

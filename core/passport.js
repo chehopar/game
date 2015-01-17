@@ -50,11 +50,26 @@ app.use(function(req, res, next){
     next();
 });
 
+/**
+ * Unless authenticated, skip entire route handlers
+ * up to error handler.
+ *
+ * @param  {Request}    req
+ * @param  {Response}   res
+ * @param  {Function}   next
+ * @return {Boolean}
+ */
 
 module.exports.isAuthenticated = function (req, res, next) {
-    var err = req.isAuthenticated()
-            ? void 0
-            : Miscue(401, req.url);
+    if (req.isAuthenticated())
+        return next();
+
+    // remember url of resource user was trying to access
+    var data = {
+            url: req.url
+        };
+
+    var err = Miscue(401, data);
 
     return next(err);
 };
