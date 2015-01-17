@@ -12,3 +12,8 @@ app.post('/login', passport.authenticate('local-login'), function (req, res) {
 
     return res.redirect('/');
 });
+
+app.get('/logout', function (req, res) {
+    req.logout();
+    res.redirect('/');
+});
