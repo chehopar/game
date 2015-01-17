@@ -1,4 +1,5 @@
-var passport = require('passport');
+// load `passport` and expose
+var passport = module.exports = require('passport');
 
 var LocalStrategy   = require('passport-local').Strategy;
 
