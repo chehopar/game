@@ -8,6 +8,8 @@ var morgan = require('morgan'),
     cookieParser = require('cookie-parser'),
     session = require('express-session');
 
+var favicon = require('serve-favicon');
+
 // instantiate app
 var app = module.exports = express();
 
@@ -34,6 +36,8 @@ app.use(session({
 // static middleware
 app.use(express.static('assets'));
 app.use(express.static('public'));
+
+app.use(favicon(__dirname + '/public/artwork/favicon/favicon-32.ico'));
 
 // setup view rendering
 require('./core/engine.js');

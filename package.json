@@ -28,7 +28,8 @@
     "express-session": "^1.10.1",
     "passport-local": "^1.0.0",
     "passport": "^0.2.1",
-    "decanat-miscue": "^0.2.0"
+    "decanat-miscue": "^0.2.0",
+    "serve-favicon": "^2.2.0"
   },
   "devDependencies": {
     "jshint-stylish": "^1.0.0",
