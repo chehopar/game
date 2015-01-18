@@ -32,7 +32,7 @@ app.use(session({
 }));
 
 // static middleware
-app.use(express.static('public'));
+app.use(express.static('assets'));
 
 // setup view rendering
 require('./core/engine.js');
