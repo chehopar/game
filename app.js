@@ -40,6 +40,8 @@ require('./routes');
 
 require('./core/errors.js');
 
+var redis = require('./transports/redis');
+
 // bind network on given port
 app.listen(config.port, function () {
     console.log('Example app listening at http://%s:%s', config.host, config.port);
