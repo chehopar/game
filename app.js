@@ -1,12 +1,7 @@
 // require modules
 var express = require('express');
 
-// middleware
-var morgan = require('morgan'),
-    bodyParser = require('body-parser'),
-    methodOverride = require('method-override');
-
-var favicon = require('serve-favicon');
+var morgan = require('morgan');
 
 var config = require('./config');
 
@@ -16,22 +11,8 @@ var app = module.exports = express();
 // logger
 app.use(morgan('dev'));
 
-// parse application/x-www-form-urlencoded
-app.use(bodyParser.urlencoded({ extended: false }));
+require('./core/middleware.js');
 
-// parse application/json
-app.use(bodyParser.json());
-
-// use HTTP verbs with fallback on "X-HTTP-Method-Override" header
-app.use(methodOverride());
-
-// static middleware
-app.use(express.static('assets'));
-app.use(express.static('public'));
-
-app.use(favicon(__dirname + '/public/artwork/favicon/favicon-32.ico'));
-
-// setup view rendering
 require('./core/engine.js');
 require('./core/session.js');
 require('./core/passport.js');
@@ -39,8 +20,6 @@ require('./core/passport.js');
 require('./routes');
 
 require('./core/errors.js');
-
-var redis = require('./transports/redis');
 
 // bind network on given port
 app.listen(config.port, function () {

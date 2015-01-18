@@ -7,6 +7,8 @@ config.host = process.env.HOST || '0.0.0.0';
 config.port = process.argv[2] || process.env.PORT || 9000;
 
 
+config.pathMap = require('./pathmap.js');
+
 // sessions
 config.session = require('./session.js');
 

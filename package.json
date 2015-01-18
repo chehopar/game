@@ -32,7 +32,8 @@
     "serve-favicon": "^2.2.0",
     "redis": "^0.12.1",
     "dburi": "0.0.0",
-    "connect-redis": "^2.1.0"
+    "connect-redis": "^2.1.0",
+    "serve-static": "^1.8.0"
   },
   "devDependencies": {
     "jshint-stylish": "^1.0.0",
