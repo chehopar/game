@@ -33,6 +33,7 @@ app.use(session({
 
 // static middleware
 app.use(express.static('assets'));
+app.use(express.static('public'));
 
 // setup view rendering
 require('./core/engine.js');

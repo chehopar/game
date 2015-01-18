@@ -1,0 +1,23 @@
+(\_/)
+(o.o)
+(___)0
+
+/* CONTRIBUTORS */
+
+Supervisor: Che Oshn
+Email: cheoshn@gmail.com
+Location: Yerevan, Armenia
+
+Developer: Mushex Antaranian
+Email: mushex@antaranian.com
+Location: Odzun, Armenia
+
+/* THANKS */
+
+Consultant: Andranik Muradian
+Email: muradianator@gmail.com
+Location: Yerevan, Armenia
+
+/* SITE */
+Site: example.com
+Development Version: dev.example.com
