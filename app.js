@@ -10,6 +10,8 @@ var morgan = require('morgan'),
 
 var favicon = require('serve-favicon');
 
+var config = require('./config');
+
 // instantiate app
 var app = module.exports = express();
 
@@ -47,11 +49,7 @@ require('./routes');
 
 require('./core/errors.js');
 
-var port = 4040;
-
 // bind network on given port
-
-var server = app.listen(port, function () {
-        var host = server.address().address;
-        console.log('Example app listening at http://%s:%s', host, port);
-    });
+app.listen(config.port, function () {
+    console.log('Example app listening at http://%s:%s', config.host, config.port);
+});
