@@ -16,6 +16,9 @@ app.use(function(err, req, res, next){
     if (err.code == 404)
         return notFound(err, req, res);
 
+    if (app.get('env') == 'development')
+        return next(err);
+    // if (app.env)
     res.status(500).send('Something broke!');
 });
 
