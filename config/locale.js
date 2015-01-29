@@ -1,3 +1,5 @@
+var pathMap = require('./pathmap.js');
+
 var options = module.exports = {};
 
 // setup some locales - other locales default to en silently
@@ -10,7 +12,7 @@ options.defaultLocale = 'de';
 options.cookie = 'lang';
 
 // where to store json files - defaults to './locales' relative to modules directory
-options.directory = './locales';
+options.directory = pathMap.locales;
 
 // whether to write new locale information to disk - defaults to true
 options.updateFiles = false;
